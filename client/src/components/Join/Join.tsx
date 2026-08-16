@@ -16,6 +16,7 @@ const Join: FC = () => {
             placeholder="Name"
             className="joinInput"
             onChange={(e) => setName(e.target.value)}
+            id="name"
           />
         </div>
         <div>
@@ -25,6 +26,7 @@ const Join: FC = () => {
             placeholder="Room"
             className="joinInput mt-20"
             onChange={(e) => setRoom(e.target.value)}
+            id="room"
           />
         </div>
         <Link
