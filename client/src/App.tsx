@@ -1,11 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Join from "./components/Join/Join";
+import Chat from "./components/Chat/Chat";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Join />,
+  },
+  {
+    path: "chat",
+    element: <Chat />,
   },
 ]);
 
