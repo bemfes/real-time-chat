@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { Link } from "react-router-dom";
+import "./Join.css";
 
 const Join: FC = () => {
   const [name, setName] = useState<string>("");
