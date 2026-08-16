@@ -8,7 +8,7 @@
 }
 
 .joinInnerContainer {
-  width: 20%;
+  width: 50%;
 }
 
 .joinInput {
@@ -22,6 +22,7 @@
   font-size: 2.5em;
   padding-bottom: 10px;
   border-bottom: 2px solid white;
+  margin-bottom: 20px;
 }
 
 .button {
