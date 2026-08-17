@@ -12,6 +12,8 @@ const Chat: FC = () => {
   useEffect(() => {
     const socket = io(ENDPOINT);
     console.log(socket);
+
+    socket.emit("join", { name, room });
   }, [ENDPOINT]);
 
   return (
