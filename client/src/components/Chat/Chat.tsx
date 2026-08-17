@@ -20,7 +20,7 @@ const Chat: FC = () => {
 
       socket.off();
     };
-  }, [ENDPOINT]);
+  }, [ENDPOINT, name, room]);
 
   return (
     <div>
