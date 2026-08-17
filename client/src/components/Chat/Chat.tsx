@@ -14,6 +14,12 @@ const Chat: FC = () => {
     console.log(socket);
 
     socket.emit("join", { name, room });
+
+    return () => {
+      socket.emit("disconnect");
+
+      socket.off();
+    };
   }, [ENDPOINT]);
 
   return (
