@@ -20,7 +20,7 @@ const Chat: FC = () => {
     socket.current.emit("join", { name, room }, () => {});
 
     return () => {
-      socket.current!.emit("disconnect");
+      socket.current!.disconnect();
 
       socket.current!.off();
     };
