@@ -28,6 +28,17 @@ io.on("connection", (socket) => {
     if ("error" in result) return callback(result.error);
 
     socket.join(result.room);
+
+    socket.emit("message", {
+      user: "admin",
+      text: `${result.name} welcome to the romm ${result.room}`,
+    });
+
+    socket.broadcast
+      .to(result.room)
+      .emit("message", { user: "admin", text: `${result.name} has joined!` });
+
+    callback();
   });
 
   socket.on("disconnect", () => {
