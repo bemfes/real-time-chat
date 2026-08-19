@@ -35,8 +35,7 @@ const Chat: FC = () => {
     });
   }, [messages]);
 
-  const sendMessage = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    e.preventDefault();
+  const sendMessage = () => {
     if (message) {
       socket.current!.emit("sendMessage", message, () => setMessage(""));
     }
@@ -51,7 +50,7 @@ const Chat: FC = () => {
         <input
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          onKeyDown={(e) => (e.key === "Enter" ? sendMessage(e) : null)}
+          onKeyDown={(e) => (e.key === "Enter" ? sendMessage() : null)}
         />
       </div>
     </div>
