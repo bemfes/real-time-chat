@@ -8,23 +8,20 @@ interface InputProps {
 }
 
 const Input: FC<InputProps> = ({ message, setMessage, sendMessage }) => {
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      sendMessage();
-    }
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    sendMessage();
   };
   return (
-    <form className="form">
+    <form className="form" onSubmit={(e) => handleSubmit(e)}>
       <input
         className="input"
         placeholder="Type a message..."
         type="text"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        onKeyDown={(e) => handleKeyDown(e)}
       />
-      <button className="sendButton" onClick={sendMessage}>
+      <button type="submit" className="sendButton">
         Send
       </button>
     </form>
