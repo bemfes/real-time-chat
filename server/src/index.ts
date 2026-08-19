@@ -2,7 +2,7 @@ import express from "express";
 import http from "http";
 import { Server } from "socket.io";
 import router from "./router.ts";
-import { addUser } from "./users.ts";
+import { addUser, getUser } from "./users.ts";
 
 const PORT = process.env.PORT || 3000;
 
@@ -37,6 +37,18 @@ io.on("connection", (socket) => {
     socket.broadcast
       .to(result.room)
       .emit("message", { user: "admin", text: `${result.name} has joined!` });
+
+    callback();
+  });
+
+  socket.on("sendMessage", (message, callback) => {
+    const user = getUser(socket.id);
+
+    if (!user) {
+      return callback("User is not found");
+    }
+
+    io.to(user.room).emit("message", { user: user.name, text: message });
 
     callback();
   });
