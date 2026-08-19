@@ -28,3 +28,7 @@ export const addUser = ({ id, name, room }: User): User | { error: string } => {
 export const removeUser = (id: string): User[] => {
   return users.filter((user) => user.id !== id);
 };
+
+export const getUser = (id: string): User | undefined => {
+  return users.find((user) => user.id === id);
+};
