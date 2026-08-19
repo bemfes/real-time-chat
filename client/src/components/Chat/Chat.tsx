@@ -13,7 +13,7 @@ const Chat: FC = () => {
     const socket = io(ENDPOINT);
     console.log(socket);
 
-    socket.emit("join", { name, room });
+    socket.emit("join", { name, room }, () => {});
 
     return () => {
       socket.emit("disconnect");
