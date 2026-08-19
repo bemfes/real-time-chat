@@ -1,6 +1,6 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-import io from "socket.io-client";
+import io, { Socket } from "socket.io-client";
 
 const Chat: FC = () => {
   const [searchParams] = useSearchParams();
@@ -9,16 +9,18 @@ const Chat: FC = () => {
 
   const ENDPOINT = "http://localhost:3000";
 
+  const socket = useRef<Socket | null>(null);
+
   useEffect(() => {
-    const socket = io(ENDPOINT);
+    socket.current = io(ENDPOINT);
     console.log(socket);
 
-    socket.emit("join", { name, room }, () => {});
+    socket.current.emit("join", { name, room }, () => {});
 
     return () => {
-      socket.emit("disconnect");
+      socket.current!.emit("disconnect");
 
-      socket.off();
+      socket.current!.off();
     };
   }, [ENDPOINT, name, room]);
 
