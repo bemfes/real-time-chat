@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import io, { Socket } from "socket.io-client";
 import "./Chat.css";
 import InfoBar from "../InfoBar/InfoBar";
+import Input from "../Input/Input";
 
 const Chat: FC = () => {
   const [searchParams] = useSearchParams();
@@ -47,10 +48,10 @@ const Chat: FC = () => {
     <div className="outerContainer">
       <div className="container">
         <InfoBar room={room!} />
-        <input
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onKeyDown={(e) => (e.key === "Enter" ? sendMessage() : null)}
+        <Input
+          message={message}
+          setMessage={setMessage}
+          sendMessage={sendMessage}
         />
       </div>
     </div>
