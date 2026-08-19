@@ -2,6 +2,7 @@ import express from "express";
 import http from "http";
 import { Server } from "socket.io";
 import router from "./router.ts";
+import { addUser } from "./users.ts";
 
 const PORT = process.env.PORT || 3000;
 
@@ -20,8 +21,13 @@ const io = new Server(httpServer, {
 io.on("connection", (socket) => {
   console.log("user is connected");
 
-  socket.on("join", ({ name, room }) => {
+  socket.on("join", ({ name, room }, callback) => {
     console.log(name, room);
+    const result = addUser({ id: socket.id, name, room });
+
+    if ("error" in result) return callback(result.error);
+
+    socket.join(result.room);
   });
 
   socket.on("disconnect", () => {
