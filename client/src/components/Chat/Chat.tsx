@@ -8,6 +8,7 @@ const Chat: FC = () => {
   const room = searchParams.get("room");
 
   const [message, setMessage] = useState<string>("");
+  const [messages, setMessages] = useState<string[]>([]);
 
   const ENDPOINT = "http://localhost:3000";
 
@@ -26,12 +27,20 @@ const Chat: FC = () => {
     };
   }, [ENDPOINT, name, room]);
 
+  useEffect(() => {
+    socket.current!.on("message", (message) => {
+      setMessages((prev) => [...prev, message.text]);
+    });
+  }, [messages]);
+
   const sendMessage = (e: React.KeyboardEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (message) {
       socket.current!.emit("sendMessage", message, () => setMessage(""));
     }
   };
+  console.log(message);
+  console.log(messages);
 
   return (
     <div className="outerContainer">
