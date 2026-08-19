@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import "./Input.css";
 
 interface InputProps {
   message: string;
