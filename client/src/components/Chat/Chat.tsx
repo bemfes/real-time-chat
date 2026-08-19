@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import io, { Socket } from "socket.io-client";
+import "./Chat.css";
 
 const Chat: FC = () => {
   const [searchParams] = useSearchParams();
