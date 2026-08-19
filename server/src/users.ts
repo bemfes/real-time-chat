@@ -24,3 +24,7 @@ export const addUser = ({ id, name, room }: User): User | { error: string } => {
 
   return user;
 };
+
+export const removeUser = (id: string): User[] => {
+  return users.filter((user) => user.id !== id);
+};
