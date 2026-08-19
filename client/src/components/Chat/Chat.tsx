@@ -27,7 +27,10 @@ const Chat: FC = () => {
   }, [ENDPOINT, name, room]);
 
   const sendMessage = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    console.log(e);
+    e.preventDefault();
+    if (message) {
+      socket.current!.emit("sendMessage", message, () => setMessage(""));
+    }
   };
 
   return (
