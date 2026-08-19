@@ -23,18 +23,16 @@ const Chat: FC = () => {
 
     socket.current.emit("join", { name, room }, () => {});
 
+    socket.current!.on("message", (message) => {
+      setMessages((prev) => [...prev, message.text]);
+    });
+
     return () => {
       socket.current!.disconnect();
 
       socket.current!.off();
     };
   }, [ENDPOINT, name, room]);
-
-  useEffect(() => {
-    socket.current!.on("message", (message) => {
-      setMessages((prev) => [...prev, message.text]);
-    });
-  }, [messages]);
 
   const sendMessage = () => {
     if (message) {
