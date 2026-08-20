@@ -24,7 +24,7 @@ const Chat: FC = () => {
     socket.current.emit("join", { name, room }, () => {});
 
     socket.current!.on("message", (message) => {
-      setMessages((prev) => [...prev, message.text]);
+      setMessages((prev) => [...prev, message]);
     });
 
     return () => {
