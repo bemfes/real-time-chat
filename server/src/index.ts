@@ -2,7 +2,7 @@ import express from "express";
 import http from "http";
 import { Server } from "socket.io";
 import router from "./router.ts";
-import { addUser, getUser } from "./users.ts";
+import { addUser, getUser, removeUser } from "./users.ts";
 
 const PORT = process.env.PORT || 3000;
 
@@ -54,7 +54,13 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    console.log("user is disconnected");
+    const user = removeUser(socket.id);
+    if (user) {
+      io.to(user.room).emit("message", {
+        user: "admin",
+        text: `user ${user.name} has left`,
+      });
+    }
   });
 });
 
