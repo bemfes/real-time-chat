@@ -4,6 +4,7 @@ import io, { Socket } from "socket.io-client";
 import "./Chat.css";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
+import type { IMessage } from "../../types/types";
 
 const Chat: FC = () => {
   const [searchParams] = useSearchParams();
@@ -11,7 +12,7 @@ const Chat: FC = () => {
   const room = searchParams.get("room");
 
   const [message, setMessage] = useState<string>("");
-  const [messages, setMessages] = useState<string[]>([]);
+  const [messages, setMessages] = useState<IMessage[]>([]);
 
   const ENDPOINT = "http://localhost:3000";
 
