@@ -25,8 +25,10 @@ export const addUser = ({ id, name, room }: User): User | { error: string } => {
   return user;
 };
 
-export const removeUser = (id: string): User[] => {
-  return users.filter((user) => user.id !== id);
+export const removeUser = (id: string): User | undefined => {
+  const index = users.findIndex((user) => user.id === id);
+
+  if (index !== -1) return users.splice(index, 1)[0];
 };
 
 export const getUser = (id: string): User | undefined => {
