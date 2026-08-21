@@ -1,12 +1,12 @@
-interface User {
-  id: string;
-  name: string;
-  room: string;
-}
+import type { IUser } from "@chat/common/types/types";
 
-const users: User[] = [];
+const users: IUser[] = [];
 
-export const addUser = ({ id, name, room }: User): User | { error: string } => {
+export const addUser = ({
+  id,
+  name,
+  room,
+}: IUser): IUser | { error: string } => {
   name = name.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
@@ -25,16 +25,16 @@ export const addUser = ({ id, name, room }: User): User | { error: string } => {
   return user;
 };
 
-export const removeUser = (id: string): User | undefined => {
+export const removeUser = (id: string): IUser | undefined => {
   const index = users.findIndex((user) => user.id === id);
 
   if (index !== -1) return users.splice(index, 1)[0];
 };
 
-export const getUser = (id: string): User | undefined => {
+export const getUser = (id: string): IUser | undefined => {
   return users.find((user) => user.id === id);
 };
 
-export const getUsersInRoom = (room: string): User[] => {
+export const getUsersInRoom = (room: string): IUser[] => {
   return users.filter((user) => user.room === room);
 };
