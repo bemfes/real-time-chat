@@ -6,6 +6,7 @@ import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
 import type { IMessage } from "../../types/types";
 import Messages from "../Messages/Messages";
+import type { IUser } from "../../../../common/types/types";
 
 const Chat: FC = () => {
   const [searchParams] = useSearchParams();
@@ -14,6 +15,7 @@ const Chat: FC = () => {
 
   const [message, setMessage] = useState<string>("");
   const [messages, setMessages] = useState<IMessage[]>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
 
   const ENDPOINT = "http://localhost:3000";
 
@@ -27,6 +29,11 @@ const Chat: FC = () => {
 
     socket.current!.on("message", (message) => {
       setMessages((prev) => [...prev, message]);
+    });
+
+    socket.current!.on("roomData", (message) => {
+      setUsers(message.users);
+      console.log(users);
     });
 
     return () => {
