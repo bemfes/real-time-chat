@@ -2,7 +2,7 @@ import { FC } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import "./Messages.css";
 import Message from "./Message/Message";
-import type { IMessage } from "../../types/types";
+import type { IMessage } from "@chat/common/types/types";
 
 interface MessagesProps {
   messages: IMessage[];

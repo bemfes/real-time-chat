@@ -4,9 +4,9 @@ import io, { Socket } from "socket.io-client";
 import "./Chat.css";
 import InfoBar from "../InfoBar/InfoBar";
 import Input from "../Input/Input";
-import type { IMessage } from "../../../../common/types/types";
+import type { IMessage } from "@chat/common/types/types";
 import Messages from "../Messages/Messages";
-import type { IUser } from "../../../../common/types/types";
+import type { IUser } from "@chat/common/types/types";
 import UsersOnline from "../UsersOnline/UsersOnline";
 
 const Chat: FC = () => {
