@@ -16,6 +16,9 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "dependencies": {
+  "@chat/common": "1.0.0"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/express": "^5.0.6",
