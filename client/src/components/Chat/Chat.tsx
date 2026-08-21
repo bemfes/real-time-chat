@@ -7,6 +7,7 @@ import Input from "../Input/Input";
 import type { IMessage } from "../../types/types";
 import Messages from "../Messages/Messages";
 import type { IUser } from "../../../../common/types/types";
+import UsersOnline from "../UsersOnline/UsersOnline";
 
 const Chat: FC = () => {
   const [searchParams] = useSearchParams();
@@ -62,6 +63,7 @@ const Chat: FC = () => {
           sendMessage={sendMessage}
         />
       </div>
+      <UsersOnline users={users} />
     </div>
   );
 };
