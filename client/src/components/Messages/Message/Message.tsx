@@ -23,9 +23,9 @@ const Message: FC<MessageProps> = ({ message, name }) => {
   ) : (
     <div className="messageContainer justifyStart">
       <div className="messageBox backgroundLight">
+        <p className="sentText">{message.user}</p>
         <p className="messageText colorDark">{message.text}</p>
       </div>
-      <p className="sentText pl-10">{message.user}</p>
     </div>
   );
 };
