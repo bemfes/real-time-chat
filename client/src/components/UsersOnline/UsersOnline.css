@@ -20,11 +20,18 @@
 
 .activeContainer img {
   padding-right: 10px;
+  padding-top: 4px;
 }
 
 .textContainer h1 {
   margin-bottom: 0px;
   font-size: 30px;
+}
+
+@media(max-width: 991px) {
+  .activeContainer img {
+    padding-top: 7px;
+}
 }
 
 @media(max-width: 575px) {
