@@ -1,5 +1,5 @@
 import { FC, useEffect, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import io, { Socket } from "socket.io-client";
 import "./Chat.css";
 import InfoBar from "../InfoBar/InfoBar";
@@ -14,6 +14,8 @@ const Chat: FC = () => {
   const name = searchParams.get("name");
   const room = searchParams.get("room");
 
+  const navigate = useNavigate();
+
   const [message, setMessage] = useState<string>("");
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [users, setUsers] = useState<IUser[]>([]);
@@ -26,7 +28,12 @@ const Chat: FC = () => {
     socket.current = io(ENDPOINT);
     console.log(socket);
 
-    socket.current.emit("join", { name, room }, () => {});
+    socket.current.emit("join", { name, room }, (error: string) => {
+      if (error) {
+        alert(error);
+        navigate("/");
+      }
+    });
 
     socket.current!.on("message", (message) => {
       setMessages((prev) => [...prev, message]);
