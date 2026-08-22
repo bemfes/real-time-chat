@@ -27,3 +27,9 @@
   font-size: 30px;
 }
 
+@media(max-width: 575px) {
+  .textContainer h1 {
+    font-size: 20px;
+  }
+}
+
