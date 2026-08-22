@@ -25,3 +25,14 @@ input:focus, textarea:focus, select:focus{
   border: none;
   width: 20%;
 }
+
+@media(max-width: 470px) {
+  .sendButton {
+    width: 25%;
+    font-size: 12px;
+    padding: 10px;
+  }
+  .input {
+    font-size: 1em;
+  }
+}
