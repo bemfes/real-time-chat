@@ -26,7 +26,6 @@ const Chat: FC = () => {
 
   useEffect(() => {
     socket.current = io(ENDPOINT);
-    console.log(socket);
 
     socket.current.emit("join", { name, room }, (error: string) => {
       if (error) {
@@ -41,7 +40,6 @@ const Chat: FC = () => {
 
     socket.current!.on("roomData", (message) => {
       setUsers(message.users);
-      console.log(users);
     });
 
     return () => {
@@ -56,8 +54,6 @@ const Chat: FC = () => {
       socket.current!.emit("sendMessage", message, () => setMessage(""));
     }
   };
-  console.log(message);
-  console.log(messages);
 
   return (
     <div className="outerContainer">

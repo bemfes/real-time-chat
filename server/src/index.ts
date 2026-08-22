@@ -19,10 +19,7 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  console.log("user is connected");
-
   socket.on("join", ({ name, room }, callback) => {
-    console.log(name, room);
     const result = addUser({ id: socket.id, name, room });
 
     if ("error" in result) return callback(result.error);
@@ -74,6 +71,4 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(PORT, () =>
-  console.log(`server has started on port ${PORT}`),
-);
+httpServer.listen(PORT, () => {});
