@@ -16,3 +16,20 @@
   height: 75%;
   width: 45%;
 }
+
+@media(max-width: 991px) {
+  .outerContainer {
+    flex-direction: column;
+    padding: 30px 10px;
+  }
+  .container {
+    width: 70%;
+  }
+}
+
+@media(max-width: 575px) {
+  .container {
+    width: 90%;
+    height: 400px;
+  }
+}
