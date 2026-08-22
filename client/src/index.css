@@ -40,6 +40,13 @@ body {
     width: 95%;
   }
 }
+
+@media(max-width: 1024px) {
+  #root {
+    height: auto;
+  }
+}
+
 @media(max-width: 575px) {
   #root {
     width: 100%;
