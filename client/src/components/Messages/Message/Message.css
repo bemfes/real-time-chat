@@ -31,7 +31,8 @@
   display: flex;
   align-items: center;
   font-family: Helvetica;
-  color: #828282;
+  color: #4d4a4a;;
+  font-weight: 600;
   letter-spacing: 0.3px;
 }
 
