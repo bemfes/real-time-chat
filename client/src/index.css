@@ -35,6 +35,11 @@ body {
   min-height: 100vh;
 }
 
+@media(max-width: 1299px) {
+  #root {
+    width: 95%;
+  }
+}
 @media(max-width: 575px) {
   #root {
     width: 100%;
