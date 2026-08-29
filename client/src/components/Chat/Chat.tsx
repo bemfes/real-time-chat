@@ -20,7 +20,7 @@ const Chat: FC = () => {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [users, setUsers] = useState<IUser[]>([]);
 
-  const ENDPOINT = "http://localhost:3000";
+  const ENDPOINT = import.meta.env.VITE_SERVER_URL;
 
   const socket = useRef<Socket | null>(null);
 
