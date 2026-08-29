@@ -2,5 +2,9 @@
   "name": "@chat/common",
   "version": "1.0.0",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "exports": {
+    "./types": "./types/index.ts"
+  }
+  
 }
