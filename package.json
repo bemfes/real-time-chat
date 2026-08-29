@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start:server": "cd server && npm run dev",
+    "start:client": "cd client && npm run dev",
+    "start": "run-p start:server start:client"
   },
   "workspaces": [
     "client",
