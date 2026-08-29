@@ -1,6 +1,6 @@
 import { FC } from "react";
 import "./Message.css";
-import type { IMessage } from "@chat/common/types/types";
+import type { IMessage } from "@chat/common/types";
 
 interface MessageProps {
   message: IMessage;

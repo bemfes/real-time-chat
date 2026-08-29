@@ -1,4 +1,4 @@
-import type { IUser } from "@chat/common/types/types";
+import type { IUser } from "@chat/common/types";
 
 const users: IUser[] = [];
 
