@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky",
     "start:server": "cd server && npm run dev",
     "start:client": "cd client && npm run dev",
