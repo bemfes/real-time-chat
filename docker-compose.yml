@@ -1,0 +1,21 @@
+services:
+  client:
+    build:
+      context: .
+      dockerfile: client/.Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_SERVER_URL: http://localhost:3000
+    depends_on:
+      - server
+  server:
+    build:
+      context: .
+      dockerfile: server/.Dockerfile
+    ports:
+        - "3000:3000"
+    environment:
+      CLIENT_URL: http://localhost:5173
+      PORT: 3000
+    
