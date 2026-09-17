@@ -10,5 +10,5 @@ RUN npm run build --workspace=server
 
 EXPOSE 3000 
 
-CMD ["node", "dist/index.js"]
+CMD ["node", "server/dist/index.js"]
 
